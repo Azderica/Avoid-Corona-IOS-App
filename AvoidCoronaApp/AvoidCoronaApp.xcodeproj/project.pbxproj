@@ -15,6 +15,7 @@
 		ACA576DF2485523F002F0A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */; };
 		ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E624855313002F0A17 /* FirstViewController.swift */; };
 		ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E82485537A002F0A17 /* SecondViewController.swift */; };
+		B87B87072487754600D93918 /* COVIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87B87062487754600D93918 /* COVIDCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ACA576E02485523F002F0A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACA576E624855313002F0A17 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		ACA576E82485537A002F0A17 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B87B87062487754600D93918 /* COVIDCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +65,13 @@
 				ACA576D22485523D002F0A17 /* AppDelegate.swift */,
 				ACA576D42485523D002F0A17 /* SceneDelegate.swift */,
 				ACA576D62485523D002F0A17 /* ViewController.swift */,
-				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				ACA576E82485537A002F0A17 /* SecondViewController.swift */,
+				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				ACA576E624855313002F0A17 /* FirstViewController.swift */,
+				B87B87062487754600D93918 /* COVIDCell.swift */,
+				ACA576E02485523F002F0A17 /* Info.plist */,
 				ACA576DB2485523F002F0A17 /* Assets.xcassets */,
 				ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */,
-				ACA576E02485523F002F0A17 /* Info.plist */,
 			);
 			path = AvoidCoronaApp;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA576D72485523D002F0A17 /* ViewController.swift in Sources */,
+				B87B87072487754600D93918 /* COVIDCell.swift in Sources */,
 				ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */,
 				ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */,
 				ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */,
