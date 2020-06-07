@@ -6,34 +6,54 @@
 //  Copyright © 2020 Azderica. All rights reserved.
 //
 
-import UIKit
 import GoogleMaps
-
+import UIKit
 
 class SecondViewController: UIViewController {
+    var passengerData: PassengerData?
+    private var heatmapLayer: GMUHeatmapTileLayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
     override func loadView() {
-         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-               let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-               mapView.isMyLocationEnabled = true
-               view = mapView
-               
-               // Creates a marker in the center of the map.
-               let marker = GMSMarker()
-               marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-               marker.title = "Sydney"
-               marker.snippet = "Australia"
-               marker.map = mapView
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
+        view = mapView
+
+        // Creates a marker in the center of the map.6
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
+        
+        heatmapLayer = GMUHeatmapTileLayer()
+        heatmapLayer.map = mapView
     }
-    
-    
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if passengerData == nil {
+            loadData()
+        }
+    }
+
+    private func loadData() {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.passengerData = PassengerData()
+            // Add to UI
+
+            DispatchQueue.main.async {
+                self?.addHeatmap()
+            }
+        }
+    }
+
 //    private var heatmapLayer: GMUHeatmapTileLayer!
 //
 //    override func viewDidLoad() {
@@ -41,39 +61,34 @@ class SecondViewController: UIViewController {
 //      heatmapLayer.map = mapView
 //    }
 //
-//    func addHeatmap()  {
-//      var list = [GMUWeightedLatLng]()
-//      do {
-//        // Get the data: latitude/longitude positions of police stations.
-//        if let path = Bundle.main.url(forResource: "police_stations", withExtension: "json") {
-//          let data = try Data(contentsOf: path)
-//          let json = try JSONSerialization.jsonObject(with: data, options: [])
-//          if let object = json as? [[String: Any]] {
-//            for item in object {
-//              let lat = item["lat"]
-//              let lng = item["lng"]
-//              let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(lat as! CLLocationDegrees, lng as! CLLocationDegrees), intensity: 1.0)
-//              list.append(coords)
-//            }
-//          } else {
-//            print("Could not read the JSON.")
-//          }
-//        }
-//      } catch {
-//        print(error.localizedDescription)
-//      }
-//      // Add the latlngs to the heatmap layer.
-//      heatmapLayer.weightedData = list
-//    }
+    func addHeatmap() {
+        
+        var list = [GMUWeightedLatLng]()
+        do {
+            guard let locations = passengerData?.locations else {
+                return
+            }
+
+            for item in locations {
+                switch item {
+                case let .busStation(station, lat, long, passengers), let .subwayStation(station, lat, long, passengers):
+                    let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(lat as! CLLocationDegrees, long as! CLLocationDegrees), intensity: passengers)
+                    list.append(coords)
+                }
+            }
+
+            // Add the latlngs to the heatmap layer.
+            heatmapLayer.weightedData = list
+        }
+    }
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+     }
+     */
 }
