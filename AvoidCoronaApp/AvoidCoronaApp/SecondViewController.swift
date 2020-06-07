@@ -7,6 +7,7 @@
 //
 
 import GoogleMaps
+import GoogleMapsUtils
 import UIKit
 
 class SecondViewController: UIViewController {
