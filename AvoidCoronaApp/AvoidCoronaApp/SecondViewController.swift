@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -16,6 +17,39 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+//    private var heatmapLayer: GMUHeatmapTileLayer!
+//
+//    override func viewDidLoad() {
+//      heatmapLayer = GMUHeatmapTileLayer()
+//      heatmapLayer.map = mapView
+//    }
+//
+//    func addHeatmap()  {
+//      var list = [GMUWeightedLatLng]()
+//      do {
+//        // Get the data: latitude/longitude positions of police stations.
+//        if let path = Bundle.main.url(forResource: "police_stations", withExtension: "json") {
+//          let data = try Data(contentsOf: path)
+//          let json = try JSONSerialization.jsonObject(with: data, options: [])
+//          if let object = json as? [[String: Any]] {
+//            for item in object {
+//              let lat = item["lat"]
+//              let lng = item["lng"]
+//              let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(lat as! CLLocationDegrees, lng as! CLLocationDegrees), intensity: 1.0)
+//              list.append(coords)
+//            }
+//          } else {
+//            print("Could not read the JSON.")
+//          }
+//        }
+//      } catch {
+//        print(error.localizedDescription)
+//      }
+//      // Add the latlngs to the heatmap layer.
+//      heatmapLayer.weightedData = list
+//    }
 
     /*
     // MARK: - Navigation
