@@ -32,14 +32,13 @@ struct PassengerData {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let object = json as? [[String: Any]] {
                     for item in object {
-                        guard let station = item[stationAttribute] as? String, let lat = item["lat"] as? Double,
-                            let long = item["long"] as? Double, let passengers = item["passengers"] as? Int else {
+                        guard let station = item[stationAttribute] as? String, let lat = item["lat"] as? String, let long = item["long"] as? String, let passengers = item["passengers"] as? Int else {
                             print("Problem unpacking JSON data.")
                             throw JsonUnpackingError.couldNotCast
                         }
-                        let passengerLocation = dataType == .busData ? PassengerLocation.busStation(station, lat, long, passengers) :
-                            PassengerLocation.subwayStation(station, lat, long, passengers)
-                        
+                        let passengerLocation = dataType == .busData ? PassengerLocation.busStation(station, Double(lat)!, Double(long)!, passengers) :
+                            PassengerLocation.subwayStation(station, Double(lat)!, Double(long)!, passengers)
+        
                         locationsFromJson.append(passengerLocation)
                     }
                 } else {
