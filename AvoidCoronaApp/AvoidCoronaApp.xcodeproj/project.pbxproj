@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		34FA323E248D0F9000985898 /* PassengerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FA323D248D0F9000985898 /* PassengerData.swift */; };
-		34FA3242248D166200985898 /* subwaydata.json in Resources */ = {isa = PBXBuildFile; fileRef = 34FA3240248D166200985898 /* subwaydata.json */; };
 		34FA3243248D166200985898 /* busdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 34FA3241248D166200985898 /* busdata.json */; };
 		35637079B6E48AEA57F7608F /* Pods_AvoidCoronaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A34A70F23F1FA6D9E257140 /* Pods_AvoidCoronaApp.framework */; };
+		76B313DA248D666B00D036D2 /* subwaydata.json in Resources */ = {isa = PBXBuildFile; fileRef = 76B313D9248D666B00D036D2 /* subwaydata.json */; };
 		ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D22485523D002F0A17 /* AppDelegate.swift */; };
 		ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D42485523D002F0A17 /* SceneDelegate.swift */; };
 		ACA576D72485523D002F0A17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D62485523D002F0A17 /* ViewController.swift */; };
@@ -24,9 +24,9 @@
 /* Begin PBXFileReference section */
 		2A34A70F23F1FA6D9E257140 /* Pods_AvoidCoronaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvoidCoronaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FA323D248D0F9000985898 /* PassengerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerData.swift; sourceTree = "<group>"; };
-		34FA3240248D166200985898 /* subwaydata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = subwaydata.json; path = "/Users/jjh/Developer/Avoid-Corona-IOS-App/AvoidCoronaApp/AvoidCoronaApp/../../Map Data Generation/subwaydata.json"; sourceTree = "<absolute>"; };
 		34FA3241248D166200985898 /* busdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = busdata.json; path = "../../Map Data Generation/busdata.json"; sourceTree = "<group>"; };
 		3CE935DD4D298A69C1481DDC /* Pods-AvoidCoronaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvoidCoronaApp.debug.xcconfig"; path = "Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		76B313D9248D666B00D036D2 /* subwaydata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = subwaydata.json; sourceTree = "<group>"; };
 		ACA576CF2485523D002F0A17 /* AvoidCoronaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvoidCoronaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA576D22485523D002F0A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA576D42485523D002F0A17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				ACA576E624855313002F0A17 /* FirstViewController.swift */,
 				ACA576DB2485523F002F0A17 /* Assets.xcassets */,
 				34FA3241248D166200985898 /* busdata.json */,
-				34FA3240248D166200985898 /* subwaydata.json */,
+				76B313D9248D666B00D036D2 /* subwaydata.json */,
 				ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */,
 				ACA576E02485523F002F0A17 /* Info.plist */,
 				34FA323D248D0F9000985898 /* PassengerData.swift */,
@@ -166,9 +166,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34FA3242248D166200985898 /* subwaydata.json in Resources */,
 				ACA576DF2485523F002F0A17 /* LaunchScreen.storyboard in Resources */,
 				34FA3243248D166200985898 /* busdata.json in Resources */,
+				76B313DA248D666B00D036D2 /* subwaydata.json in Resources */,
 				ACA576DC2485523F002F0A17 /* Assets.xcassets in Resources */,
 				ACA576DA2485523D002F0A17 /* Main.storyboard in Resources */,
 			);

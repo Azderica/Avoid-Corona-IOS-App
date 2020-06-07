@@ -85,7 +85,7 @@ class SecondViewController: UIViewController, GMSMapViewDelegate {
                 return
             }
 
-            for item in locations {o
+            for item in locations {
                 let coords: GMUWeightedLatLng
                 switch item {
                 case let .busStation(_, lat, long, passengers):
