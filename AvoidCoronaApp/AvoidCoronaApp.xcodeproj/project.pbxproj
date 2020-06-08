@@ -19,6 +19,7 @@
 		ACA576DF2485523F002F0A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */; };
 		ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E624855313002F0A17 /* FirstViewController.swift */; };
 		ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E82485537A002F0A17 /* SecondViewController.swift */; };
+		B87B87072487754600D93918 /* COVIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87B87062487754600D93918 /* COVIDCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		ACA576E624855313002F0A17 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		ACA576E82485537A002F0A17 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		EA944F8AB6F2584367CE189B /* Pods-AvoidCoronaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvoidCoronaApp.release.xcconfig"; path = "Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp.release.xcconfig"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,15 +87,18 @@
 				ACA576D22485523D002F0A17 /* AppDelegate.swift */,
 				ACA576D42485523D002F0A17 /* SceneDelegate.swift */,
 				ACA576D62485523D002F0A17 /* ViewController.swift */,
-				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				ACA576E82485537A002F0A17 /* SecondViewController.swift */,
+				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				ACA576E624855313002F0A17 /* FirstViewController.swift */,
+				B87B87062487754600D93918 /* COVIDCell.swift */,
+				ACA576E02485523F002F0A17 /* Info.plist */,
 				ACA576DB2485523F002F0A17 /* Assets.xcassets */,
 				34FA3241248D166200985898 /* busdata.json */,
 				76B313D9248D666B00D036D2 /* subwaydata.json */,
 				ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */,
 				ACA576E02485523F002F0A17 /* Info.plist */,
 				34FA323D248D0F9000985898 /* PassengerData.swift */,
+
 			);
 			path = AvoidCoronaApp;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			files = (
 				34FA323E248D0F9000985898 /* PassengerData.swift in Sources */,
 				ACA576D72485523D002F0A17 /* ViewController.swift in Sources */,
+				B87B87072487754600D93918 /* COVIDCell.swift in Sources */,
 				ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */,
 				ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */,
 				ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */,
