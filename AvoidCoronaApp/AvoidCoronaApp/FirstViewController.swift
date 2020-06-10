@@ -30,7 +30,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         //COVID 데이터 JSON 파싱
         getData1 {
             let updateTime = (self.jsondata1["updateTime"] as! String).components(separatedBy: "(")
-            self.titleLabel.text = updateTime[0]
+            self.titleLabel.text = "COVID-19 국내 지역별 상세 현황"
             self.dateLabel.text = updateTime[1].components(separatedBy: ")")[0]
             self.KoreaCOVIDTableView.reloadData()
         }
@@ -66,59 +66,58 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 22
+        return 19
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = KoreaCOVIDTableView.dequeueReusableCell(withIdentifier: "COVIDCell", for: indexPath) as! COVIDCell
+        let cell = KoreaCOVIDTableView.dequeueReusableCell(withIdentifier: "COVIDDetailCell", for: indexPath) as! COVIDDetailCell
         switch indexPath.row {
         case 0:
-            cell.titleLabel.text = "누적 확진자 수"
-            cell.valueLabel.text = jsondata1["TotalCase"] as? String
+            cell.cityLabel.text = "전국"
+            if let totalCase = (jsondata1["TotalCase"] as? String), let todayRecovered = (jsondata1["TodayRecovered"] as? String), let todayDeath = (jsondata1["TodayDeath"] as? String), let totalCaseBefore = (jsondata1["TotalCaseBefore"] as? String), let nowCase = (jsondata1["NowCase"] as? String), let totalDeath = (jsondata1["TotalDeath"] as? String), let totalRecovered = (jsondata1["TotalRecovered"] as? String) {
+                if let todayRecovered_int = Int(todayRecovered), let todayDeath_int = Int(todayDeath), let totalCaseBefore_int = Int(totalCaseBefore) {
+                    let todayCase = todayDeath_int + todayRecovered_int + totalCaseBefore_int
+                    cell.caseLabel.text = totalCase
+                    cell.nowcaseLabel.text = nowCase
+                    cell.deathLabel.text = totalDeath
+                    cell.recoveredLabel.text = totalRecovered
+                }
+            }
         case 1:
-            cell.titleLabel.text = "누적 완치자 수"
-            cell.valueLabel.text = jsondata1["TotalRecovered"] as? String
-        case 2:
-            cell.titleLabel.text = "누적 사망자 수"
-            cell.valueLabel.text = jsondata1["TotalDeath"] as? String
-        case 3:
-            cell.titleLabel.text = "격리 환자 수"
-            cell.valueLabel.text = jsondata1["NowCase"] as? String
-        case 4:
             updateLabel(city_kor: "서울", city_eng: "seoul", cell: cell)
-        case 5:
+        case 2:
             updateLabel(city_kor: "부산", city_eng: "busan", cell: cell)
-        case 6:
+        case 3:
             updateLabel(city_kor: "대구", city_eng: "daegu", cell: cell)
-        case 7:
+        case 4:
             updateLabel(city_kor: "인천", city_eng: "incheon", cell: cell)
-        case 8:
+        case 5:
             updateLabel(city_kor: "광주", city_eng: "gwangju", cell: cell)
-        case 9:
+        case 6:
             updateLabel(city_kor: "대전", city_eng: "daejeon", cell: cell)
-        case 10:
+        case 7:
             updateLabel(city_kor: "울산", city_eng: "ulsan", cell: cell)
-        case 11:
+        case 8:
             updateLabel(city_kor: "세종", city_eng: "sejong", cell: cell)
-        case 12:
+        case 9:
             updateLabel(city_kor: "경기", city_eng: "gyeonggi", cell: cell)
-        case 13:
+        case 10:
             updateLabel(city_kor: "강원", city_eng: "gangwon", cell: cell)
-        case 14:
+        case 11:
             updateLabel(city_kor: "충북", city_eng: "chungbuk", cell: cell)
-        case 15:
+        case 12:
             updateLabel(city_kor: "충남", city_eng: "chungnam", cell: cell)
-        case 16:
+        case 13:
             updateLabel(city_kor: "전북", city_eng: "jeonbuk", cell: cell)
-        case 17:
+        case 14:
             updateLabel(city_kor: "전남", city_eng: "jeonnam", cell: cell)
-        case 18:
+        case 15:
             updateLabel(city_kor: "경북", city_eng: "gyeongbuk", cell: cell)
-        case 19:
+        case 16:
             updateLabel(city_kor: "경남", city_eng: "gyeongnam", cell: cell)
-        case 20:
+        case 17:
             updateLabel(city_kor: "제주", city_eng: "jeju", cell: cell)
-        case 21:
+        case 18:
             updateLabel(city_kor: "검역", city_eng: "quarantine", cell: cell)
         default:
             break
@@ -126,10 +125,42 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func updateLabel(city_kor: String, city_eng: String, cell: COVIDCell) {
-        cell.titleLabel.text = city_kor
+    func updateLabel(city_kor: String, city_eng: String, cell: COVIDDetailCell) {
+        cell.cityLabel.text = city_kor
         let data = jsondata2[city_eng] as! [String: Any]
-        cell.valueLabel.text = data["totalCase"] as? String
+        if let totalCase = (data["totalCase"] as? String), let totalDeath = (data["death"] as? String), let totalRecovered = (data["recovered"] as? String) {
+            if let totalCase_int = Int(totalCase), let totalDeath_int = Int(totalDeath), let totalRecovered_int = Int(totalRecovered) {
+                let nowCase = totalCase_int - totalDeath_int - totalRecovered_int
+                cell.caseLabel.text = totalCase
+                cell.nowcaseLabel.text = String(nowCase)
+                cell.deathLabel.text = totalDeath
+                cell.recoveredLabel.text = totalRecovered
+            }
+            else {
+                var split = totalCase.components(separatedBy: ",")
+                var totalCase_str = split[0]
+                for count in 1..<split.count {
+                    totalCase_str += split[count]
+                }
+                split = totalDeath.components(separatedBy: ",")
+                var totalDeath_str = split[0]
+                for count in 1..<split.count {
+                    totalDeath_str += split[count]
+                }
+                split = totalRecovered.components(separatedBy: ",")
+                var totalRecovered_str = split[0]
+                for count in 1..<split.count {
+                    totalRecovered_str += split[count]
+                }
+                if let totalCase_int = Int(totalCase_str), let totalDeath_int = Int(totalDeath_str), let totalRecovered_int = Int(totalRecovered_str) {
+                    let nowCase = totalCase_int - totalDeath_int - totalRecovered_int
+                    cell.caseLabel.text = totalCase
+                    cell.nowcaseLabel.text = String(nowCase)
+                    cell.deathLabel.text = totalDeath
+                    cell.recoveredLabel.text = totalRecovered
+                }
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class COVIDCell: UITableViewCell {
+class RealtimeSituationBoardCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
