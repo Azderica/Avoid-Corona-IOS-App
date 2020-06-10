@@ -13,13 +13,15 @@
 		76B313DA248D666B00D036D2 /* subwaydata.json in Resources */ = {isa = PBXBuildFile; fileRef = 76B313D9248D666B00D036D2 /* subwaydata.json */; };
 		ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D22485523D002F0A17 /* AppDelegate.swift */; };
 		ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D42485523D002F0A17 /* SceneDelegate.swift */; };
-		ACA576D72485523D002F0A17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576D62485523D002F0A17 /* ViewController.swift */; };
 		ACA576DA2485523D002F0A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576D82485523D002F0A17 /* Main.storyboard */; };
 		ACA576DC2485523F002F0A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DB2485523F002F0A17 /* Assets.xcassets */; };
 		ACA576DF2485523F002F0A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */; };
 		ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E624855313002F0A17 /* FirstViewController.swift */; };
 		ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E82485537A002F0A17 /* SecondViewController.swift */; };
-		B835D45B248F8DA4001A4CBF /* COVIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835D45A248F8DA4001A4CBF /* COVIDCell.swift */; };
+		B835D45B248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */; };
+		B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */; };
+		B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */; };
+		B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */; };
 		B87B87072487754600D93918 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -32,14 +34,16 @@
 		ACA576CF2485523D002F0A17 /* AvoidCoronaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvoidCoronaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA576D22485523D002F0A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA576D42485523D002F0A17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACA576D62485523D002F0A17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACA576D92485523D002F0A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA576DB2485523F002F0A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA576DE2485523F002F0A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA576E02485523F002F0A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACA576E624855313002F0A17 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		ACA576E82485537A002F0A17 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		B835D45A248F8DA4001A4CBF /* COVIDCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COVIDCell.swift; sourceTree = "<group>"; };
+		B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealtimeSituationBoardCell.swift; sourceTree = "<group>"; };
+		B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCoronaViewController.swift; sourceTree = "<group>"; };
+		B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeSituationBoardViewController.swift; sourceTree = "<group>"; };
+		B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDDetailCell.swift; sourceTree = "<group>"; };
 		EA944F8AB6F2584367CE189B /* Pods-AvoidCoronaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvoidCoronaApp.release.xcconfig"; path = "Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,10 +91,12 @@
 			children = (
 				ACA576D22485523D002F0A17 /* AppDelegate.swift */,
 				ACA576D42485523D002F0A17 /* SceneDelegate.swift */,
-				ACA576D62485523D002F0A17 /* ViewController.swift */,
-				B835D45A248F8DA4001A4CBF /* COVIDCell.swift */,
+				B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */,
+				B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */,
 				ACA576E82485537A002F0A17 /* SecondViewController.swift */,
 				ACA576D82485523D002F0A17 /* Main.storyboard */,
+				B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */,
+				B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */,
 				ACA576E624855313002F0A17 /* FirstViewController.swift */,
 				ACA576DB2485523F002F0A17 /* Assets.xcassets */,
 				34FA3241248D166200985898 /* busdata.json */,
@@ -228,13 +234,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				34FA323E248D0F9000985898 /* PassengerData.swift in Sources */,
-				ACA576D72485523D002F0A17 /* ViewController.swift in Sources */,
+				B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */,
+				B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */,
 				B87B87072487754600D93918 /* (null) in Sources */,
+				B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */,
 				ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */,
 				ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */,
 				ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */,
 				ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */,
-				B835D45B248F8DA4001A4CBF /* COVIDCell.swift in Sources */,
+				B835D45B248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
