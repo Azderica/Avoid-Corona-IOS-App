@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kanna
 
 class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
@@ -14,6 +15,7 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
     
     var jsondata_kor: [String: Any]!
     var jsondata2: [String: Any]!
+    var worldCOVIDNums: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,14 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
         //Label layout 설정
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
-        //COVID 데이터 JSON 파싱
+        titleLabel.text = "COVID-19 실시간 상황판"
+        worldCOVIDNums = [String]()
+        //전세계 데이터 Crawling
+        crawling {
+            self.COVIDTableView.reloadData()
+        }
+        //국내 데이터 JSON 파싱
         getDataKorea {
-            self.titleLabel.text = "COVID-19 실시간 상황판"
             self.COVIDTableView.reloadData()
         }
         getData2 {
@@ -40,7 +47,7 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
             let url = URL(string: "http://api.corona-19.kr/korea")
             if let data = try String(contentsOf: url!).data(using: .utf8) {
                 jsondata_kor = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(jsondata_kor)
+                //print(jsondata_kor)
                 success()
             }
         } catch let e as NSError {
@@ -53,11 +60,33 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
             let url = URL(string: "http://api.corona-19.kr/korea/country/new")
             if let data = try String(contentsOf: url!).data(using: .utf8) {
                 jsondata2 = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(jsondata2)
+                //print(jsondata2)
                 success()
             }
         } catch let e as NSError {
             print(e.localizedDescription)
+        }
+    }
+    
+    func crawling(success: @escaping ()->()) {
+        let url_str = "https://www.worldometers.info/coronavirus/index.php"
+        
+        guard let url = URL(string: url_str) else { return }
+        do {
+            let html = try String(contentsOf: url, encoding: .utf8)
+            let doc = try HTML(html: html, encoding: .utf8)
+            for tr in doc.xpath("//tr") {
+                if let content = tr.text, content.contains("World") {
+                    let splited = content.components(separatedBy: "\n")
+                    for index in 3...7 {
+                        worldCOVIDNums.append(splited[index])
+                    }
+                    worldCOVIDNums.append(splited[9])
+                    break
+                }
+            }
+        } catch let error {
+            print("Error : \(error)")
         }
     }
     
@@ -85,14 +114,34 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
             switch indexPath.row {
             case 0:
                 cell.titleLabel.text = "확진자"
+                cell.valueLabel.text = "\(worldCOVIDNums[0]) (\(worldCOVIDNums[1]))"
             case 1:
                 cell.titleLabel.text = "사망자"
+                cell.valueLabel.text = "\(worldCOVIDNums[2]) (\(worldCOVIDNums[3]))"
             case 2:
                 cell.titleLabel.text = "격리해제"
+                cell.valueLabel.text = worldCOVIDNums[4]
             case 3:
-                cell.titleLabel.text = "치사율"
+                cell.titleLabel.text = "격리중"
+                cell.valueLabel.text = worldCOVIDNums[5]
             case 4:
-                cell.titleLabel.text = "발생국"
+                cell.titleLabel.text = "치사율"
+                //치사율 계산
+                let totalCase_splited = worldCOVIDNums[0].components(separatedBy: ",")
+                var totalCase_nocomma = totalCase_splited[0]
+                for count in 1..<totalCase_splited.count {
+                    totalCase_nocomma += totalCase_splited[count]
+                }
+                let totalDeath_splited = worldCOVIDNums[2].components(separatedBy: ",")
+                var totalDeath_nocomma = totalDeath_splited[0]
+                for count in 1..<totalDeath_splited.count {
+                    totalDeath_nocomma += totalDeath_splited[count]
+                }
+                if let totalDeath_double = Double(totalDeath_nocomma), let totalCase_double = Double(totalCase_nocomma) {
+                    let percentage = totalDeath_double / totalCase_double * 100
+                    let per_2digit = String(format: "%.2f", percentage)
+                    cell.valueLabel.text = "\(per_2digit)%"
+                }
             default:
                 break
             }
