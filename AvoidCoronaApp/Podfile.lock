@@ -22,23 +22,27 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (3.9.0):
     - GoogleMaps/Base (= 3.9.0)
+  - Kanna (5.2.2)
 
 DEPENDENCIES:
   - Google-Maps-iOS-Utils
   - GoogleMaps
   - GooglePlaces
+  - Kanna
 
 SPEC REPOS:
   trunk:
     - Google-Maps-iOS-Utils
     - GoogleMaps
     - GooglePlaces
+    - Kanna
 
 SPEC CHECKSUMS:
   Google-Maps-iOS-Utils: 1e51ca272b4f4befdf3577bf46f58c22ef22062c
   GoogleMaps: 4b5346bddfe6911bb89155d43c903020170523ac
   GooglePlaces: 1634d019549b969d40fe0ccb0b9513055adebe01
+  Kanna: 2c4eddaaa4bfb9a1ed19e53c0b3d42ef02838046
 
-PODFILE CHECKSUM: 7f66dca4f25b18660ca312242e7e6f44a3e6d65e
+PODFILE CHECKSUM: da9d1624d5863ef0330d2ea03af61a31716c5be9
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

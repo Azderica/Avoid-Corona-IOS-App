@@ -16,13 +16,13 @@
 		ACA576DA2485523D002F0A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576D82485523D002F0A17 /* Main.storyboard */; };
 		ACA576DC2485523F002F0A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DB2485523F002F0A17 /* Assets.xcassets */; };
 		ACA576DF2485523F002F0A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA576DD2485523F002F0A17 /* LaunchScreen.storyboard */; };
-		ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E624855313002F0A17 /* FirstViewController.swift */; };
+		ACA576E724855313002F0A17 /* KoreaCoronaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E624855313002F0A17 /* KoreaCoronaDetailViewController.swift */; };
 		ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA576E82485537A002F0A17 /* SecondViewController.swift */; };
 		B835D45B248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */; };
 		B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */; };
 		B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */; };
 		B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */; };
-		B87B87072487754600D93918 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B87B87072487754600D93918 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 		ACA576DB2485523F002F0A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA576DE2485523F002F0A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA576E02485523F002F0A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACA576E624855313002F0A17 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		ACA576E624855313002F0A17 /* KoreaCoronaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaCoronaDetailViewController.swift; sourceTree = "<group>"; };
 		ACA576E82485537A002F0A17 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealtimeSituationBoardCell.swift; sourceTree = "<group>"; };
 		B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCoronaViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */,
 				B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */,
-				ACA576E624855313002F0A17 /* FirstViewController.swift */,
+				ACA576E624855313002F0A17 /* KoreaCoronaDetailViewController.swift */,
 				ACA576DB2485523F002F0A17 /* Assets.xcassets */,
 				34FA3241248D166200985898 /* busdata.json */,
 				76B313D9248D666B00D036D2 /* subwaydata.json */,
@@ -128,6 +128,7 @@
 				ACA576CC2485523D002F0A17 /* Frameworks */,
 				ACA576CD2485523D002F0A17 /* Resources */,
 				BA2670CBFA69B54DA8D0277E /* [CP] Copy Pods Resources */,
+				819E1519A645195D8CB32D38 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +210,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		819E1519A645195D8CB32D38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BA2670CBFA69B54DA8D0277E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,12 +254,12 @@
 				34FA323E248D0F9000985898 /* PassengerData.swift in Sources */,
 				B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */,
 				B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */,
-				B87B87072487754600D93918 /* (null) in Sources */,
+				B87B87072487754600D93918 /* BuildFile in Sources */,
 				B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */,
 				ACA576D32485523D002F0A17 /* AppDelegate.swift in Sources */,
 				ACA576D52485523D002F0A17 /* SceneDelegate.swift in Sources */,
 				ACA576E92485537A002F0A17 /* SecondViewController.swift in Sources */,
-				ACA576E724855313002F0A17 /* FirstViewController.swift in Sources */,
+				ACA576E724855313002F0A17 /* KoreaCoronaDetailViewController.swift in Sources */,
 				B835D45B248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

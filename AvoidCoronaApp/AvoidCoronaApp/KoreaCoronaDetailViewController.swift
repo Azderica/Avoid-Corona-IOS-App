@@ -44,7 +44,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             let url = URL(string: "http://api.corona-19.kr/korea")
             if let data = try String(contentsOf: url!).data(using: .utf8) {
                 jsondata1 = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(jsondata1)
+                //print(jsondata1)
                 success()
             }
         } catch let e as NSError {
@@ -57,7 +57,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             let url = URL(string: "http://api.corona-19.kr/korea/country/new")
             if let data = try String(contentsOf: url!).data(using: .utf8) {
                 jsondata2 = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(jsondata2)
+                //print(jsondata2)
                 success()
             }
         } catch let e as NSError {
@@ -77,10 +77,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let totalCase = (jsondata1["TotalCase"] as? String), let todayRecovered = (jsondata1["TodayRecovered"] as? String), let todayDeath = (jsondata1["TodayDeath"] as? String), let totalCaseBefore = (jsondata1["TotalCaseBefore"] as? String), let nowCase = (jsondata1["NowCase"] as? String), let totalDeath = (jsondata1["TotalDeath"] as? String), let totalRecovered = (jsondata1["TotalRecovered"] as? String) {
                 if let todayRecovered_int = Int(todayRecovered), let todayDeath_int = Int(todayDeath), let totalCaseBefore_int = Int(totalCaseBefore) {
                     let todayCase = todayDeath_int + todayRecovered_int + totalCaseBefore_int
-                    cell.caseLabel.text = totalCase
-                    cell.nowcaseLabel.text = nowCase
-                    cell.deathLabel.text = totalDeath
-                    cell.recoveredLabel.text = totalRecovered
+                    cell.caseLabel.text = "\(totalCase)\n(+\(todayCase))"
+                    if totalCaseBefore_int >= 0 {
+                        cell.nowcaseLabel.text = "\(nowCase)\n(+\(totalCaseBefore))"
+                    }
+                    else {
+                        cell.nowcaseLabel.text = "\(nowCase)\n(-\(totalCaseBefore))"
+                    }
+                    cell.deathLabel.text = "\(totalDeath)\n(+\(todayDeath))"
+                    cell.recoveredLabel.text = "\(totalRecovered)\n(+\(todayRecovered))"
                 }
             }
         case 1:
@@ -128,37 +133,28 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func updateLabel(city_kor: String, city_eng: String, cell: COVIDDetailCell) {
         cell.cityLabel.text = city_kor
         let data = jsondata2[city_eng] as! [String: Any]
-        if let totalCase = (data["totalCase"] as? String), let totalDeath = (data["death"] as? String), let totalRecovered = (data["recovered"] as? String) {
-            if let totalCase_int = Int(totalCase), let totalDeath_int = Int(totalDeath), let totalRecovered_int = Int(totalRecovered) {
+        if let totalCase = (data["totalCase"] as? String), let totalDeath = (data["death"] as? String), let totalRecovered = (data["recovered"] as? String), let newCase = (data["newCase"] as? String) {
+            let totalCase_str = totalCase.components(separatedBy: ",")
+            var totalCase_nocomma = totalCase_str[0]
+            for count in 1..<totalCase_str.count {
+                totalCase_nocomma += totalCase_str[count]
+            }
+            let totalDeath_str = totalDeath.components(separatedBy: ",")
+            var totalDeath_nocomma = totalDeath_str[0]
+            for count in 1..<totalDeath_str.count {
+                totalDeath_nocomma += totalDeath_str[count]
+            }
+            let totalRecovered_str = totalRecovered.components(separatedBy: ",")
+            var totalRecovered_nocomma = totalRecovered_str[0]
+            for count in 1..<totalRecovered_str.count {
+                totalRecovered_nocomma += totalRecovered_str[count]
+            }
+            if let totalCase_int = Int(totalCase_nocomma), let totalDeath_int = Int(totalDeath_nocomma), let totalRecovered_int = Int(totalRecovered_nocomma) {
                 let nowCase = totalCase_int - totalDeath_int - totalRecovered_int
-                cell.caseLabel.text = totalCase
+                cell.caseLabel.text = "\(totalCase)\n(+\(newCase))"
                 cell.nowcaseLabel.text = String(nowCase)
                 cell.deathLabel.text = totalDeath
                 cell.recoveredLabel.text = totalRecovered
-            }
-            else {
-                var split = totalCase.components(separatedBy: ",")
-                var totalCase_str = split[0]
-                for count in 1..<split.count {
-                    totalCase_str += split[count]
-                }
-                split = totalDeath.components(separatedBy: ",")
-                var totalDeath_str = split[0]
-                for count in 1..<split.count {
-                    totalDeath_str += split[count]
-                }
-                split = totalRecovered.components(separatedBy: ",")
-                var totalRecovered_str = split[0]
-                for count in 1..<split.count {
-                    totalRecovered_str += split[count]
-                }
-                if let totalCase_int = Int(totalCase_str), let totalDeath_int = Int(totalDeath_str), let totalRecovered_int = Int(totalRecovered_str) {
-                    let nowCase = totalCase_int - totalDeath_int - totalRecovered_int
-                    cell.caseLabel.text = totalCase
-                    cell.nowcaseLabel.text = String(nowCase)
-                    cell.deathLabel.text = totalDeath
-                    cell.recoveredLabel.text = totalRecovered
-                }
             }
         }
     }
