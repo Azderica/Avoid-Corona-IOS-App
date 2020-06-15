@@ -28,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2A34A70F23F1FA6D9E257140 /* Pods_AvoidCoronaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvoidCoronaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		347CF90E24977D9600665887 /* Gong9Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gong9Location.gpx; sourceTree = "<group>"; };
 		34FA323D248D0F9000985898 /* PassengerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerData.swift; sourceTree = "<group>"; };
 		34FA3241248D166200985898 /* busdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = busdata.json; path = "../../Map Data Generation/busdata.json"; sourceTree = "<group>"; };
 		3CE935DD4D298A69C1481DDC /* Pods-AvoidCoronaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvoidCoronaApp.debug.xcconfig"; path = "Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 				B87592D6249780D7003CDC90 /* MainTabBarController.swift */,
 				B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */,
 				ACA576E82485537A002F0A17 /* SecondViewController.swift */,
+				347CF90E24977D9600665887 /* Gong9Location.gpx */,
 				ACA576D82485523D002F0A17 /* Main.storyboard */,
 				B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */,
 				B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */,
