@@ -10,16 +10,17 @@ import GoogleMaps
 import GoogleMapsUtils
 import UIKit
 
-class SecondViewController: UIViewController, GMSMapViewDelegate {
+class SecondViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     var passengerData: PassengerData?
     private var heatmapLayer: GMUHeatmapTileLayer!
     private var mapView: GMSMapView!
+    private var locationManager = CLLocationManager()
     
     
     // Adjust gradientStartPoints, radius, colorMapSize to change map coloring.
     // It is particularly about the difference between the gradientStartPoints, and how low they are.
-    private var gradientColors = [UIColor.orange, UIColor.red]
-    private var gradientStartPoints = [0.02, 0.04] as [NSNumber]
+    private let gradientColors = [UIColor.orange, UIColor.red]
+    private let gradientStartPoints = [0.02, 0.04] as [NSNumber]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,14 @@ class SecondViewController: UIViewController, GMSMapViewDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 35.86784, longitude: 128.59370, zoom: 13.0)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.setMinZoom(13, maxZoom: 13)
-//        mapView.isMyLocationEnabled = true
+        mapView.isMyLocationEnabled = true
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 500
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         mapView.delegate = self
         self.view = mapView
 
@@ -113,6 +121,24 @@ class SecondViewController: UIViewController, GMSMapViewDelegate {
          // Pass the selected object to the new view controller.
      }
      */
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+            if (status == CLAuthorizationStatus.authorizedWhenInUse)
+
+            {
+                mapView.isMyLocationEnabled = true
+            }
+        }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let newLocation = locations.last
+            mapView.camera = GMSCameraPosition.camera(withTarget: newLocation!.coordinate, zoom: 15.0)
+            mapView.settings.myLocationButton = true
+            self.view = self.mapView
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
+        marker.map = self.mapView
+        }
 }
 
 extension Double {
