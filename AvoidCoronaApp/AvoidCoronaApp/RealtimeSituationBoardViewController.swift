@@ -21,24 +21,34 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        //테이블 뷰 delegate 설정
-        COVIDTableView.dataSource = self
-        COVIDTableView.delegate = self
         //Label layout 설정
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.text = "COVID-19 실시간 상황판"
         worldCOVIDNums = [String]()
-        //전세계 데이터 Crawling
-        crawling {
-            self.COVIDTableView.reloadData()
-        }
-        //국내 데이터 JSON 파싱
-        getDataKorea {
-            self.COVIDTableView.reloadData()
-        }
-        getData2 {
-            self.COVIDTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            //테이블 뷰 delegate 설정
+            self.COVIDTableView.dataSource = self
+            self.COVIDTableView.delegate = self
+            //전세계 데이터 Crawling
+            self.crawling {
+                print("crawling end")
+                self.COVIDTableView.reloadData()
+            }
+            //국내 데이터 JSON 파싱
+            self.getDataKorea {
+                print("getData1 end")
+                self.COVIDTableView.reloadData()
+            }
+            self.getData2 {
+                print("getData2 end")
+                self.COVIDTableView.reloadData()
+            }
         }
     }
     
@@ -109,6 +119,7 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("add cell")
         let cell = COVIDTableView.dequeueReusableCell(withIdentifier: "RealtimeSituationBoardCell", for: indexPath) as! RealtimeSituationBoardCell
         if indexPath.section == 0 {
             switch indexPath.row {

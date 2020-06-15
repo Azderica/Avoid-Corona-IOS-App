@@ -22,6 +22,7 @@
 		B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */; };
 		B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */; };
 		B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */; };
+		B87592D7249780D7003CDC90 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87592D6249780D7003CDC90 /* MainTabBarController.swift */; };
 		B87B87072487754600D93918 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCoronaViewController.swift; sourceTree = "<group>"; };
 		B874CF442490BE9800CEA270 /* RealtimeSituationBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeSituationBoardViewController.swift; sourceTree = "<group>"; };
 		B874CF462490CAAD00CEA270 /* COVIDDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDDetailCell.swift; sourceTree = "<group>"; };
+		B87592D6249780D7003CDC90 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EA944F8AB6F2584367CE189B /* Pods-AvoidCoronaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvoidCoronaApp.release.xcconfig"; path = "Target Support Files/Pods-AvoidCoronaApp/Pods-AvoidCoronaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				ACA576D22485523D002F0A17 /* AppDelegate.swift */,
 				ACA576D42485523D002F0A17 /* SceneDelegate.swift */,
 				B874CF422490BD2800CEA270 /* TodaysCoronaViewController.swift */,
+				B87592D6249780D7003CDC90 /* MainTabBarController.swift */,
 				B835D45A248F8DA4001A4CBF /* RealtimeSituationBoardCell.swift */,
 				ACA576E82485537A002F0A17 /* SecondViewController.swift */,
 				347CF90E24977D9600665887 /* Gong9Location.gpx */,
@@ -255,6 +258,7 @@
 			files = (
 				34FA323E248D0F9000985898 /* PassengerData.swift in Sources */,
 				B874CF432490BD2800CEA270 /* TodaysCoronaViewController.swift in Sources */,
+				B87592D7249780D7003CDC90 /* MainTabBarController.swift in Sources */,
 				B874CF472490CAAD00CEA270 /* COVIDDetailCell.swift in Sources */,
 				B87B87072487754600D93918 /* (null) in Sources */,
 				B874CF452490BE9800CEA270 /* RealtimeSituationBoardViewController.swift in Sources */,

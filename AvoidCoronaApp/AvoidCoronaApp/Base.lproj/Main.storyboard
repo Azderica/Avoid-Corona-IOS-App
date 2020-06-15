@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4zB-1C-oaY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4zB-1C-oaY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="316" y="611"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="ouK-jo-AOi">
             <objects>
-                <tabBarController id="4zB-1C-oaY" sceneMemberID="viewController">
+                <tabBarController id="4zB-1C-oaY" customClass="MainTabBarController" customModule="AvoidCoronaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fQb-9x-Tql">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -209,38 +209,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="stw-2I-Ee7">
+                                <rect key="frame" x="80.5" y="385" width="253" height="126"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZGs-rt-kmO">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="126"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bN-dE-OSg">
+                                                <rect key="frame" x="45.5" y="0.0" width="162" height="48"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="실시간 상황판"/>
+                                                <connections>
+                                                    <segue destination="ibq-Kn-jm0" kind="show" id="uki-VO-Lq9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apO-pQ-1Ql">
+                                                <rect key="frame" x="0.0" y="78" width="253" height="48"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="국내 지역별 상세 현황"/>
+                                                <connections>
+                                                    <segue destination="fbI-a0-ovA" kind="show" id="v0j-iN-Wmj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 코로나는 ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbB-un-F2h">
-                                <rect key="frame" x="84.5" y="64" width="245" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <rect key="frame" x="67.5" y="94" width="279.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZGs-rt-kmO">
-                                <rect key="frame" x="142.5" y="414" width="129" height="68"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bN-dE-OSg">
-                                        <rect key="frame" x="23.5" y="0.0" width="82" height="30"/>
-                                        <state key="normal" title="실시간 상황판"/>
-                                        <connections>
-                                            <segue destination="ibq-Kn-jm0" kind="show" id="uki-VO-Lq9"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apO-pQ-1Ql">
-                                        <rect key="frame" x="0.0" y="38" width="129" height="30"/>
-                                        <state key="normal" title="국내 지역별 상세 현황"/>
-                                        <connections>
-                                            <segue destination="fbI-a0-ovA" kind="show" id="v0j-iN-Wmj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZGs-rt-kmO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7cm-vN-Whd"/>
-                            <constraint firstItem="ZGs-rt-kmO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RNi-ZV-AJa"/>
-                            <constraint firstItem="DbB-un-F2h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="clA-Bs-U42"/>
-                            <constraint firstItem="DbB-un-F2h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zYh-2Q-QAg"/>
+                            <constraint firstItem="DbB-un-F2h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7N5-eg-sv2"/>
+                            <constraint firstItem="stw-2I-Ee7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CLb-Nv-CDX"/>
+                            <constraint firstItem="stw-2I-Ee7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IkN-nb-ZlK"/>
+                            <constraint firstItem="DbB-un-F2h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="jhP-u3-EZm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
