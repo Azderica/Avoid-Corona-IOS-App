@@ -12,6 +12,5 @@ class TodaysCoronaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
 }

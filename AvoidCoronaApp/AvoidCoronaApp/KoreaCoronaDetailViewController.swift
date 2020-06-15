@@ -21,21 +21,28 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        //테이블 뷰 delegate 설정
-        KoreaCOVIDTableView.dataSource = self
-        KoreaCOVIDTableView.delegate = self
         //Label layout 설정
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
-        //COVID 데이터 JSON 파싱
-        getData1 {
-            let updateTime = (self.jsondata1["updateTime"] as! String).components(separatedBy: "(")
-            self.titleLabel.text = "COVID-19 국내 지역별 상세 현황"
-            self.dateLabel.text = updateTime[1].components(separatedBy: ")")[0]
-            self.KoreaCOVIDTableView.reloadData()
-        }
-        getData2 {
-            self.KoreaCOVIDTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            //테이블 뷰 delegate 설정
+            self.KoreaCOVIDTableView.dataSource = self
+            self.KoreaCOVIDTableView.delegate = self
+            //COVID 데이터 JSON 파싱
+            self.getData1 {
+                let updateTime = (self.jsondata1["updateTime"] as! String).components(separatedBy: "(")
+                self.titleLabel.text = "COVID-19 국내 지역별 상세 현황"
+                self.dateLabel.text = updateTime[1].components(separatedBy: ")")[0]
+                self.KoreaCOVIDTableView.reloadData()
+            }
+            self.getData2 {
+                self.KoreaCOVIDTableView.reloadData()
+            }
         }
     }
     
