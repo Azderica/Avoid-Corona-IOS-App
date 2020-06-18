@@ -51,7 +51,33 @@
 - 사회적 거리두기의 지표가 될 수 있음
 - 사람들의 코로나 바이러스 예방
 
-
-
 ---
+
+## 개발 결과
+
+### 시작화면
+
+![image](https://user-images.githubusercontent.com/42582516/84979282-0bbff280-b16a-11ea-92ea-d1e5cf5f014f.png)
+
+- 시작 화면
+
+
+
+### 기능 1. 오늘의 코로나는?
+
+![image](https://user-images.githubusercontent.com/42582516/84979301-124e6a00-b16a-11ea-8604-42a92ff90270.png)
+
+#### 상세기능 1. 실시간 상황판
+
+![image](https://user-images.githubusercontent.com/42582516/84979331-24c8a380-b16a-11ea-9d4f-d5f80a9a33f6.png)
+
+#### 상세기능 2. 국내 지역별 상세현황
+
+![image](https://user-images.githubusercontent.com/42582516/84979340-2f833880-b16a-11ea-9cc2-17da8dfe1380.png)
+
+
+
+### 기능2. 주변 유동 인구 확인
+
+![image](https://user-images.githubusercontent.com/42582516/84979308-1c706880-b16a-11ea-90f8-e6161d24a1b7.png)
 
