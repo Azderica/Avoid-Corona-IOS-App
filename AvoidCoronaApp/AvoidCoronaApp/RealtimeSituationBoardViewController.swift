@@ -31,23 +31,31 @@ class RealtimeSituationBoardViewController: UIViewController, UITableViewDataSou
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.async {
-            //테이블 뷰 delegate 설정
-            self.COVIDTableView.dataSource = self
-            self.COVIDTableView.delegate = self
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                //테이블 뷰 delegate 설정
+                self.COVIDTableView.dataSource = self
+                self.COVIDTableView.delegate = self
+            }
             //전세계 데이터 Crawling
             self.crawling {
                 print("crawling end")
-                self.COVIDTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.COVIDTableView.reloadData()
+                }
             }
             //국내 데이터 JSON 파싱
             self.getDataKorea {
                 print("getData1 end")
-                self.COVIDTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.COVIDTableView.reloadData()
+                }
             }
             self.getData2 {
                 print("getData2 end")
-                self.COVIDTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.COVIDTableView.reloadData()
+                }
             }
         }
     }
