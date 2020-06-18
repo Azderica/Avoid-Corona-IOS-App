@@ -29,19 +29,25 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.async {
-            //테이블 뷰 delegate 설정
-            self.KoreaCOVIDTableView.dataSource = self
-            self.KoreaCOVIDTableView.delegate = self
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                //테이블 뷰 delegate 설정
+                self.KoreaCOVIDTableView.dataSource = self
+                self.KoreaCOVIDTableView.delegate = self
+            }
             //COVID 데이터 JSON 파싱
             self.getData1 {
-                let updateTime = (self.jsondata1["updateTime"] as! String).components(separatedBy: "(")
-                self.titleLabel.text = "COVID-19 국내 지역별 상세 현황"
-                self.dateLabel.text = updateTime[1].components(separatedBy: ")")[0]
-                self.KoreaCOVIDTableView.reloadData()
+                DispatchQueue.main.async {
+                    let updateTime = (self.jsondata1["updateTime"] as! String).components(separatedBy: "(")
+                    self.titleLabel.text = "COVID-19 국내 지역별 상세 현황"
+                    self.dateLabel.text = updateTime[1].components(separatedBy: ")")[0]
+                    self.KoreaCOVIDTableView.reloadData()
+                }
             }
-            self.getData2 {
-                self.KoreaCOVIDTableView.reloadData()
+            DispatchQueue.main.async {
+                self.getData2 {
+                    self.KoreaCOVIDTableView.reloadData()
+                }
             }
         }
     }
