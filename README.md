@@ -57,7 +57,7 @@
 
 ### 시작화면
 
-![image](https://user-images.githubusercontent.com/42582516/84979282-0bbff280-b16a-11ea-92ea-d1e5cf5f014f.png)
+![image](https://user-images.githubusercontent.com/42582516/84980080-14b1c380-b16c-11ea-8bc2-115e5d154d89.png)
 
 - 시작 화면
 
@@ -65,19 +65,19 @@
 
 ### 기능 1. 오늘의 코로나는?
 
-![image](https://user-images.githubusercontent.com/42582516/84979301-124e6a00-b16a-11ea-8604-42a92ff90270.png)
+![image](https://user-images.githubusercontent.com/42582516/84980084-17acb400-b16c-11ea-89bb-2df8f9e97c8b.png)
 
 #### 상세기능 1. 실시간 상황판
 
-![image](https://user-images.githubusercontent.com/42582516/84979331-24c8a380-b16a-11ea-9d4f-d5f80a9a33f6.png)
+![image](https://user-images.githubusercontent.com/42582516/84980100-23987600-b16c-11ea-97fb-eb5b075ab2d2.png)
 
 #### 상세기능 2. 국내 지역별 상세현황
 
-![image](https://user-images.githubusercontent.com/42582516/84979340-2f833880-b16a-11ea-9cc2-17da8dfe1380.png)
+![image](https://user-images.githubusercontent.com/42582516/84980112-26936680-b16c-11ea-80a2-d891b7219e40.png)
 
 
 
 ### 기능2. 주변 유동 인구 확인
 
-![image](https://user-images.githubusercontent.com/42582516/84979308-1c706880-b16a-11ea-90f8-e6161d24a1b7.png)
+![image](https://user-images.githubusercontent.com/42582516/84980118-2a26ed80-b16c-11ea-995d-b0131e0dc830.png)
 
